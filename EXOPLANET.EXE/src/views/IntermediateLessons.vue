@@ -2,20 +2,28 @@
     <div class="intermediate-container">
       <section class="index">
         <h1>Intermediate Level</h1>
+        <h5>Lessons:</h5>
+        <div class="links-to-lessons">
+            <a href="#lesson-1">1. Types of exoplanets</a>
+            <a href="#lesson-2">2. Comparing exoplanets to our Earth</a>
+            <a href="#lesson-3">3. The Habitable Zone</a>
+            <a href="#lesson-4">4. Significance of exoplanets</a>
+            <a href="#lesson-5">5. Planetary form and evolution</a>
+        </div>
       </section>
-      <section class="lesson-1">
+      <section id="lesson-1">
         <h2>Lesson 1:</h2>
       </section>
-      <section class="lesson-2">
+      <section id="lesson-2">
         <h2>Lesson 2:</h2>
       </section>
-      <section class="lesson-3">
+      <section id="lesson-3">
         <h2>Lesson 3:</h2>
       </section>
-      <section class="lesson-4">
+      <section id="lesson-4">
         <h2>Lesson 4:</h2>
       </section>
-      <section class="lesson-5">
+      <section id="lesson-5">
         <h2>Lesson 5:</h2>
       </section>
     </div>
