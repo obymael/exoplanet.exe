@@ -3,8 +3,9 @@
       <header class="header p-3">
         <div class="logo">
           <!-- Link to home page once implemented -->
-           <!-- <router-link to="/">Home</router-link> -->
-            <img src="../assets/logo.png" alt="Eclipse Logo" />
+          <router-link to="/">
+            <img src="../assets/eclipse-logo.png" alt="Eclipse Logo" />
+          </router-link>
         </div>
       </header>
     </div>
@@ -26,7 +27,7 @@
    .logo img {
     max-width: 100%;
     height: auto;
-    max-height: 70px;
+    max-height: 80px;
   }
   </style>
   

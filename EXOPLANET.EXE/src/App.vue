@@ -22,7 +22,6 @@ export default {
 }
 </script>
 
-
 <style>
 #app {
   display: flex;
@@ -35,7 +34,7 @@ export default {
   color: #2c3e50;
 }
 .content {
-  flex: 1; /* Note: This makes the content take up space, pushes the footer down*/
+  flex: 1;
 }
 header{
   position: fixed;
