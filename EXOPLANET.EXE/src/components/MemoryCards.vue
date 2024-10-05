@@ -1,7 +1,7 @@
 <template>
     <div class="memory-game">
       <h1>Planet Memory Game</h1>
-      
+  
       <!-- Display the timer -->
       <div class="timer" v-if="!gameOver">
         <p>Time Elapsed: {{ formatTime(timer) }}</p>
@@ -9,18 +9,24 @@
   
       <!-- Grid for the memory cards -->
       <div class="game-board">
-        <div 
-          v-for="(card, index) in shuffledCards" 
-          :key="index" 
-          class="card" 
-          :class="{ 'flipped': isFlipped(index) || matchedIndices.includes(index) }"
-          @click="flipCard(index)"
-        >
-          <!-- Show planet/fact if flipped or matched, else show card back -->
-          <div v-if="isFlipped(index) || matchedIndices.includes(index)">
-            <p>{{ card.content }}</p>
+        <div v-for="(row, rowIndex) in gameBoard" :key="rowIndex" class="game-row">
+          <div
+            v-for="(card, colIndex) in row"
+            :key="colIndex"
+            class="card"
+            :class="{ 
+              'flipped': isFlipped(rowIndex, colIndex) || matchedIndices.includes(`${rowIndex}-${colIndex}`), 
+              'fade-out': matchedIndices.includes(`${rowIndex}-${colIndex}`) 
+            }"
+            @click="flipCard(rowIndex, colIndex)"
+            :data-index="`${rowIndex}-${colIndex}`" 
+          >
+            <!-- Show planet/fact if flipped or matched, else show card back -->
+            <div v-if="isFlipped(rowIndex, colIndex) || matchedIndices.includes(`${rowIndex}-${colIndex}`)">
+              <p>{{ card.content }}</p>
+            </div>
+            <div v-else class="card-back"></div>
           </div>
-          <div v-else class="card-back"></div>
         </div>
       </div>
   
@@ -52,70 +58,117 @@
           { type: "planet", content: "Neptune" },
           { type: "fact", content: "Coldest planet in the solar system" },
           { type: "planet", content: "Uranus" },
-          { type: "fact", content: "Rotates on its side" }
+          { type: "fact", content: "Rotates on its side" },
         ],
+        gameBoard: [],
         flippedIndices: [],
         matchedIndices: [],
         timer: 0,
         interval: null,
         gameOver: false,
+        flippingLocked: false, // Added to lock flipping temporarily
       };
     },
-    computed: {
-      shuffledCards() {
-        // eslint-disable-next-line vue/no-side-effects-in-computed-properties
-        return this.cards.sort(() => Math.random() - 0.5);
-      },
+    mounted() {
+      this.initializeGameBoard();
     },
     methods: {
-      isFlipped(index) {
-        // Check if the card at the given index is currently flipped
-        return this.flippedIndices.includes(index);
+      initializeGameBoard() {
+        // Create a fixed 2D array for the game board
+        this.gameBoard = [
+          [
+            this.cards[0], this.cards[1],
+            this.cards[2], this.cards[3]
+          ],
+          [
+            this.cards[4], this.cards[5],
+            this.cards[6], this.cards[7]
+          ],
+          [
+            this.cards[8], this.cards[9],
+            this.cards[10], this.cards[11]
+          ],
+          [
+            this.cards[12], this.cards[13],
+            this.cards[14], this.cards[15]
+          ]
+        ];
+        // Duplicate the cards to create pairs
+        this.gameBoard = this.shuffleCards(this.gameBoard);
       },
-      flipCard(index) {
-        if (this.flippedIndices.length === 2 || this.matchedIndices.includes(index)) {
-          // If two cards are already flipped or card is matched, ignore click
+      shuffleCards(board) {
+        const flattened = board.flat();
+        // Shuffle the cards
+        for (let i = flattened.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [flattened[i], flattened[j]] = [flattened[j], flattened[i]];
+        }
+        // Rebuild the 2D array after shuffling
+        const newBoard = [];
+        for (let i = 0; i < 4; i++) {
+          newBoard.push(flattened.slice(i * 4, i * 4 + 4));
+        }
+        return newBoard;
+      },
+      isFlipped(rowIndex, colIndex) {
+        return this.flippedIndices.includes(`${rowIndex}-${colIndex}`);
+      },
+      flipCard(rowIndex, colIndex) {
+        const index = `${rowIndex}-${colIndex}`;
+        // Prevent flipping more cards if two are already flipped, card is matched, or flipping is locked
+        if (this.flippedIndices.length === 2 || this.matchedIndices.includes(index) || this.flippingLocked) {
           return;
         }
   
-        // Start timer when the first card is flipped
         if (this.flippedIndices.length === 0 && this.matchedIndices.length === 0) {
           this.startTimer();
         }
   
-        // Add card to flipped array
         this.flippedIndices.push(index);
   
-        // Check if two cards are flipped
+        // Lock flipping while checking for a match
         if (this.flippedIndices.length === 2) {
+          this.flippingLocked = true;
           this.checkForMatch();
         }
       },
       checkForMatch() {
-        const [firstIndex, secondIndex] = this.flippedIndices;
-        const firstCard = this.shuffledCards[firstIndex];
-        const secondCard = this.shuffledCards[secondIndex];
-  
-        if (
-          (firstCard.type === "planet" && secondCard.type === "fact" && this.isMatch(firstCard, secondCard)) ||
-          (firstCard.type === "fact" && secondCard.type === "planet" && this.isMatch(secondCard, firstCard))
-        ) {
-          // Cards match, add to matched indices
-          this.matchedIndices.push(firstIndex, secondIndex);
-  
-          // Check if game is over
-          if (this.matchedIndices.length === this.shuffledCards.length) {
-            this.endGame();
-          }
-        }
-  
-        // Reset flipped cards after a short delay to give feedback to the user
-        setTimeout(() => {
-          this.flippedIndices = [];
-        }, 1000);
-      },
+  const [firstIndex, secondIndex] = this.flippedIndices;
+  const [firstRow, firstCol] = firstIndex.split('-').map(Number);
+  const [secondRow, secondCol] = secondIndex.split('-').map(Number);
+
+  const firstCard = this.gameBoard[firstRow][firstCol];
+  const secondCard = this.gameBoard[secondRow][secondCol];
+
+  if (
+    (firstCard.type === "planet" && secondCard.type === "fact" && this.isMatch(firstCard, secondCard)) ||
+    (firstCard.type === "fact" && secondCard.type === "planet" && this.isMatch(secondCard, firstCard))
+  ) {
+    // Add matched indices
+    this.matchedIndices.push(firstIndex, secondIndex);
+    
+    // Apply fade-out effect
+    this.$nextTick(() => {
+      const firstCardElement = this.$el.querySelector(`.card[data-index="${firstIndex}"]`);
+      const secondCardElement = this.$el.querySelector(`.card[data-index="${secondIndex}"]`);
+      if (firstCardElement) firstCardElement.classList.add('fade-out');
+      if (secondCardElement) secondCardElement.classList.add('fade-out');
+    });
+
+    // Check if game is over
+    if (this.matchedIndices.length === this.cards.length) {
+      this.endGame();
+    }
+  }
+
+  // Reset flipped cards after a delay, whether they match or not
+  setTimeout(() => {
+    this.flippedIndices = []; // Clear flipped indices regardless of match
+    this.flippingLocked = false; // Unlock flipping after check is done
+  }, 1000);
+}
+,
       isMatch(planetCard, factCard) {
-        // Check if the fact corresponds to the planet
         const planetFactMapping = {
           Earth: "Only planet known to support life",
           Mars: "Known as the Red Planet",
@@ -144,7 +197,7 @@
       },
     },
     beforeUnmount() {
-      clearInterval(this.interval); // Clear timer when component is destroyed
+      clearInterval(this.interval);
     },
   };
   </script>
@@ -156,11 +209,17 @@
   }
   
   .game-board {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    display: flex;
+    flex-direction: column;
     gap: 10px;
     justify-items: center;
     margin-top: 20px;
+  }
+  
+  .game-row {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
   }
   
   .card {
@@ -194,5 +253,20 @@
   .game-over {
     margin-top: 20px;
   }
+
+  .card.fade-out {
+  animation: fadeOut 0.5s forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden; /* Makes the element invisible after fading out */
+  }
+}
+
   </style>
   

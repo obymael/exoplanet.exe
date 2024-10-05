@@ -17,14 +17,15 @@
 </template>
 
 <script>
-import { defineComponent } from '@vue/composition-api'
+import { defineComponent } from 'vue';  // Correct for Vue 3
 
 export default defineComponent({
     setup() {
-
+        // Any Vue 3 composition API logic can go here
     },
-})
+});
 </script>
+
 
 <style scoped>
 .welcome-container{
