@@ -1,14 +1,35 @@
 <template>
     <div class="game-container">
       <h1>True or False Game</h1>
-      <div v-for="(question, index) in questions" :key="index" class="question">
-        <p>{{ question.question }}</p>
-        <button @click="recordAnswer(index, true)">True</button>
-        <button @click="recordAnswer(index, false)">False</button>
+  
+      <!-- Display the current question -->
+      <div v-if="!submitted">
+        <div class="question">
+          <p>{{ questions[currentQuestionIndex].question }}</p>
+          <button @click="recordAnswer(true)" :class="{ selected: answers[currentQuestionIndex] === true }">True</button>
+          <button @click="recordAnswer(false)" :class="{ selected: answers[currentQuestionIndex] === false }">False</button>
+        </div>
+  
+        <!-- Navigation buttons -->
+        <div class="navigation">
+          <button @click="previousQuestion" :disabled="currentQuestionIndex === 0">Previous</button>
+          <button @click="nextQuestion" :disabled="answers[currentQuestionIndex] === null">Next</button>
+        </div>
+  
+        <!-- Submit button, shown when all questions are answered -->
+        <button v-if="allAnswered" @click="submitAnswers" class="submit-button">Submit Answers</button>
       </div>
-      <button @click="submitAnswers" class="submit-button">Submit Answers</button>
-      <div v-if="score !== null" class="score">
-        <h2>You got {{ score }} out of {{ questions.length }} correct!</h2>
+  
+      <!-- Show results after submission -->
+      <div v-if="submitted" class="results">
+        <h2>Results</h2>
+        <ul>
+          <li v-for="(question, index) in questions" :key="index">
+            <p>{{ question.question }}</p>
+            <p>Your answer: {{ answers[index] ? 'True' : 'False' }} - <span :class="{ correct: isCorrect(index), incorrect: !isCorrect(index) }">{{ isCorrect(index) ? 'Correct' : 'Incorrect' }}</span></p>
+          </li>
+        </ul>
+        <h3>You got {{ score }} out of {{ questions.length }} correct!</h3>
       </div>
     </div>
   </template>
@@ -28,16 +49,37 @@
         ],
         answers: Array(7).fill(null),
         score: null,
+        currentQuestionIndex: 0, // Track the current question being shown
+        submitted: false, // Track if answers have been submitted
       };
     },
+    computed: {
+      allAnswered() {
+        return this.answers.every(answer => answer !== null); // Check if all questions have been answered
+      }
+    },
     methods: {
-      recordAnswer(index, answer) {
-        this.answers[index] = answer;
+      recordAnswer(answer) {
+        this.answers[this.currentQuestionIndex] = answer; // Record the answer for the current question
+      },
+      nextQuestion() {
+        if (this.currentQuestionIndex < this.questions.length - 1) {
+          this.currentQuestionIndex++;
+        }
+      },
+      previousQuestion() {
+        if (this.currentQuestionIndex > 0) {
+          this.currentQuestionIndex--;
+        }
       },
       submitAnswers() {
         const correctAnswers = this.questions.filter((q, index) => q.answer === this.answers[index]).length;
         this.score = correctAnswers;
+        this.submitted = true; // Mark the quiz as submitted
       },
+      isCorrect(index) {
+        return this.questions[index].answer === this.answers[index]; // Check if the answer is correct
+      }
     },
   };
   </script>
@@ -50,11 +92,33 @@
   .question {
     margin: 10px 0;
   }
+  .navigation {
+    margin-top: 20px;
+  }
+  .navigation button {
+    margin-right: 10px;
+  }
   .submit-button {
     margin-top: 20px;
   }
-  .score {
+  .results {
     margin-top: 20px;
+  }
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  li {
+    margin-bottom: 10px;
+  }
+  .correct {
+    color: green;
+  }
+  .incorrect {
+    color: red;
+  }
+  .selected {
+    background-color: lightblue;
   }
   </style>
   
