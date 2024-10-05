@@ -1,5 +1,10 @@
 {
   "dependencies": {
+    "vue-router": "^4.0.13"
+  }
+}
+{
+  "dependencies": {
     "@vue/composition-api": "^1.7.2",
     "vue-router": "^3.6.5"
   }
