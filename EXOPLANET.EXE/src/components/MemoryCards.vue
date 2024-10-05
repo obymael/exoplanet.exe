@@ -7,6 +7,7 @@
             v-for="(card, colIndex) in row"
             :key="colIndex"
             class="card"
+            :data-index="`${rowIndex}-${colIndex}`"
             @click="flipCard(rowIndex, colIndex)"
           >
             <div v-if="isFlipped(rowIndex, colIndex) || matchedIndices.includes(`${rowIndex}-${colIndex}`)">
@@ -22,9 +23,10 @@
     </div>
   </template>
   
+  
   <script>
-  import marsImage from '@/assets/mars.jpg';
   import gammaCepheiImage from '@/assets/Gamma_Cephei_Ab.png';
+  import keplerfImage from '@/assets/Kepler-186f.jpg';
   
   export default {
     data() {
@@ -32,8 +34,8 @@
         cards: [
           { type: "planet", content: "Earth" },
           { type: "fact", content: "Only planet known to support life" },
-          { type: "planet", content: "Mars", img: marsImage },
-          { type: "fact", content: "Known as the Red Planet" },
+          { type: "planet", content: "Kepler-186f", img: keplerfImage },
+          { type: "fact", content: "Planet with the most similarity to earth" },
           { type: "planet", content: "Venus" },
           { type: "fact", content: "Hottest planet in the solar system" },
           { type: "planet", content: "Jupiter" },
@@ -114,40 +116,42 @@
       }
     },
     checkForMatch() {
-      const [firstIndex, secondIndex] = this.flippedIndices;
-      const [firstRow, firstCol] = firstIndex.split('-').map(Number);
-      const [secondRow, secondCol] = secondIndex.split('-').map(Number);
+  const [firstIndex, secondIndex] = this.flippedIndices;
+  const [firstRow, firstCol] = firstIndex.split('-').map(Number);
+  const [secondRow, secondCol] = secondIndex.split('-').map(Number);
 
-      const firstCard = this.gameBoard[firstRow][firstCol];
-      const secondCard = this.gameBoard[secondRow][secondCol];
+  const firstCard = this.gameBoard[firstRow][firstCol];
+  const secondCard = this.gameBoard[secondRow][secondCol];
 
-      if (
-        (firstCard.type === "planet" && secondCard.type === "fact" && this.isMatch(firstCard, secondCard)) ||
-        (firstCard.type === "fact" && secondCard.type === "planet" && this.isMatch(secondCard, firstCard))
-      ) {
-        this.matchedIndices.push(firstIndex, secondIndex);
-        
-        this.$nextTick(() => {
-          const firstCardElement = this.$el.querySelector(`.card[data-index="${firstIndex}"]`);
-          const secondCardElement = this.$el.querySelector(`.card[data-index="${secondIndex}"]`);
-          if (firstCardElement) firstCardElement.classList.add('fade-out');
-          if (secondCardElement) secondCardElement.classList.add('fade-out');
-        });
+  if (
+    (firstCard.type === "planet" && secondCard.type === "fact" && this.isMatch(firstCard, secondCard)) ||
+    (firstCard.type === "fact" && secondCard.type === "planet" && this.isMatch(secondCard, firstCard))
+  ) {
+    this.matchedIndices.push(firstIndex, secondIndex);
+    
+    // Add the fade-out class to matched cards
+    this.$nextTick(() => {
+      const firstCardElement = this.$el.querySelector(`.card[data-index="${firstIndex}"]`);
+      const secondCardElement = this.$el.querySelector(`.card[data-index="${secondIndex}"]`);
+      if (firstCardElement) firstCardElement.classList.add('fade-out');
+      if (secondCardElement) secondCardElement.classList.add('fade-out');
+    });
 
-        if (this.matchedIndices.length === this.cards.length) {
-          this.endGame();
-        }
-      }
+    if (this.matchedIndices.length === this.cards.length) {
+      this.endGame();
+    }
+  }
 
-      setTimeout(() => {
-        this.flippedIndices = [];
-        this.flippingLocked = false;
-      }, 1000);
-    },
+  // Reset flipped cards after a short delay
+  setTimeout(() => {
+    this.flippedIndices = [];
+    this.flippingLocked = false;
+  }, 1000);
+},
     isMatch(planetCard, factCard) {
       const planetFactMapping = {
         Earth: "Only planet known to support life",
-        Mars: "Known as the Red Planet",
+        "Kepler-186f": "Planet with the most similarity to earth",
         Venus: "Hottest planet in the solar system",
         Jupiter: "Largest planet in the solar system",
         Saturn: "Famous for its ring system",
@@ -249,4 +253,21 @@
   height: auto;
   margin-top: 5px;
 }
+
+.card.fade-out {
+  animation: fadeOut 1s forwards; 
+  pointer-events: none; /* Prevent clicks during the fade out */
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    transform: scale(1); /* Optional: scaling effect */
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0); /* Optional: scale down effect */
+  }
+}
+
 </style>
