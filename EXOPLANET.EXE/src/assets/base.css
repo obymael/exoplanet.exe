@@ -10,8 +10,8 @@
   --color-border: var(--vt-c-divider-light-2);
   --color-border-hover: var(--vt-c-divider-light-1);
 
-  --color-heading: var(#B3C9D6);
-  --color-text: var(--vt-c-text-light-1);
+  --color-heading: #B3C9D6;
+  --color-light-text: #DDF3FF;
 
   --section-gap: 160px;
   background: linear-gradient(5deg, #6B5C98 15%, #1C265A 100%);
