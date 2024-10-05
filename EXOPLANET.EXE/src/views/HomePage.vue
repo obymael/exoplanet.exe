@@ -31,7 +31,7 @@ export default defineComponent({
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    padding-top: 3rem;
+    padding-top: 7rem;
 }
 h1 {
     color: #B3C9D6;
