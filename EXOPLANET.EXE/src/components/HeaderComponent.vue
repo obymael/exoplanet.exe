@@ -4,7 +4,7 @@
         <div class="logo">
           <!-- Link to home page once implemented -->
           <router-link to="/">
-            <img src="../assets/eclipse-logo.png" alt="Eclipse Logo" />
+            <img src="../assets/logos/eclipse-logo.png" alt="Eclipse Logo" />
           </router-link>
         </div>
       </header>

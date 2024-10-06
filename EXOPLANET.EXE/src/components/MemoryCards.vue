@@ -34,14 +34,14 @@
 </template>
 
 <script>
-import gammaCepheiImage from '@/assets/Gamma_Cephei_Ab.png';
-import kepler186fGif from '@/assets/kepler-186f.gif';
-import waspImage from '@/assets/wasp-12b.gif';
-import glieseImage from '@/assets/Gliese_1214_b.jpg';
-import kelt9bImage from '@/assets/KELT-9b_gif.webp';
-import pegasiBImage from '@/assets/51_pegasi_b.webp';
-import proximaCentauriBGif from '@/assets/proxima_centauri_b.gif';
-import hd209458bImage from '@/assets/HD_209458b.webp';
+import gammaCepheiImage from '@/assets/memory_game/Gamma_Cephei_Ab.png';
+import kepler186fGif from '@/assets/memory_game/kepler-186f.gif';
+import waspImage from '@/assets/memory_game/wasp-12b.gif';
+import glieseImage from '@/assets/memory_game/Gliese_1214_b.jpg';
+import kelt9bImage from '@/assets/memory_game/KELT-9b_gif.webp';
+import pegasiBImage from '@/assets/memory_game/51_pegasi_b.webp';
+import proximaCentauriBGif from '@/assets/memory_game/proxima_centauri_b.gif';
+import hd209458bImage from '@/assets/memory_game/HD_209458b.webp';
 import confetti from 'canvas-confetti';
 
 export default {

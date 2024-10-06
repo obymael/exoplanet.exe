@@ -1,7 +1,7 @@
 <template>
     <footer class ="footer">
         <div class="logo">
-            <img src="../assets/eclipse-footer-logo.png" alt="Eclipse Logo">
+            <img src="../assets/logos/eclipse-footer-logo.png" alt="Eclipse Logo">
             <p class="copyright">© 2024 Eclipse Learning Platform. All rights reserved.</p>
         </div>
     </footer>
