@@ -27,6 +27,7 @@
   <script>
   import gammaCepheiImage from '@/assets/Gamma_Cephei_Ab.png';
   import keplerfImage from '@/assets/Kepler-186f.jpg';
+  import waspImage from '@/assets/wasp-12b.jpg';
   
   export default {
     data() {
@@ -38,8 +39,8 @@
           { type: "fact", content: "Planet with the most similarity to earth" },
           { type: "planet", content: "Venus" },
           { type: "fact", content: "Hottest planet in the solar system" },
-          { type: "planet", content: "Jupiter" },
-          { type: "fact", content: "Largest planet in the solar system" },
+          { type: "planet", content: "Wasp-12b", img: waspImage },
+          { type: "fact", content: "AKA \"hot Jupiter,\" it orbits close to its star, whilst gravity is tearing it apart" },
           { type: "planet", content: "Saturn" },
           { type: "fact", content: "Famous for its ring system" },
           { type: "planet", content: "Gamma Cephei Ab", img: gammaCepheiImage },
@@ -153,7 +154,7 @@
         Earth: "Only planet known to support life",
         "Kepler-186f": "Planet with the most similarity to earth",
         Venus: "Hottest planet in the solar system",
-        Jupiter: "Largest planet in the solar system",
+        "Wasp-12b": "AKA \"hot Jupiter,\" it orbits close to its star, whilst gravity is tearing it apart",
         Saturn: "Famous for its ring system",
         "Gamma Cephei Ab": "First exoplanet detected",
         Neptune: "Coldest planet in the solar system",
