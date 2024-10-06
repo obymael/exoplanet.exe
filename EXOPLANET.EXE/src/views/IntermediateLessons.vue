@@ -37,9 +37,9 @@
             </p>
           </div>
           <div class="buttons">
-            <a href="#lesson-1-full">
-              <button class="button">Learn more</button>
-            </a>
+            <router-link to="/learn-more">
+            <button class="button">Learn more</button>
+            </router-link>
           </div>
           <div class="button">
             <router-link to="/PlanetName">
@@ -381,4 +381,3 @@ font-size: 3rem;
 
 
 </style>
-  
