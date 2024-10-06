@@ -9,7 +9,7 @@
       <div class="cards-wrapper">
         <div class="card-container">
         <div class="single-card-box">
-                <img src="@/assets/beginner.jpg" alt="galaxy">
+                <img src="@/assets/difficulty_level/beginner.jpg" alt="galaxy">
                 <div class="card-layer">
                     <h4>Beginner Level</h4>
                     <p>For those new and want a very introductory exploration into exoplanets.</p>
@@ -17,7 +17,7 @@
                 </div>
             </div>
         <div class="single-card-box">
-            <img src="@/assets/intermediate.jpg" alt="galaxy">
+            <img src="@/assets/difficulty_level/intermediate.jpg" alt="galaxy">
             <div class="card-layer">
                 <h4>Intermediate Level</h4>
                 <p>For those with some prior knowledge that want to deep diver into the world of exoplanets.</p>
@@ -25,7 +25,7 @@
             </div>
         </div>
         <div class="single-card-box">
-            <img src="@/assets/advanced.jpg" alt="galaxy">
+            <img src="@/assets/difficulty_level/advanced.jpg" alt="galaxy">
             <div class="card-layer">
                 <h4>Advanced Level</h4>
                 <p>Want to challenge yourself? Impress us and try our advanced level.</p>
