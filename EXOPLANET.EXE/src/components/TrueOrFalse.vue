@@ -13,7 +13,7 @@
         <!-- Navigation buttons -->
         <div class="navigation">
           <button @click="previousQuestion" :disabled="currentQuestionIndex === 0">Previous</button>
-          <button @click="nextQuestion" :disabled="answers[currentQuestionIndex] === null">Next</button>
+          <button @click="nextQuestion" :disabled="answers[currentQuestionIndex] === null || currentQuestionIndex === questions.length - 1">Next</button>
         </div>
   
         <!-- Submit button, shown when all questions are answered -->
@@ -39,7 +39,7 @@
     data() {
       return {
         questions: [
-          { question: "The Earth is flat.", answer: false },
+          { question: "KELT-9b is hotter than our sun.", answer: false },
           { question: "Cats are mammals.", answer: true },
           { question: "The Great Wall of China is visible from the Moon.", answer: false },
           { question: "Water freezes at 0 degrees Celsius.", answer: true },
@@ -86,20 +86,64 @@
   
   <style scoped>
   .game-container {
-    padding: 20px;
+    padding: 7rem;
     font-family: Arial, sans-serif;
+    border: 2px solid red;
+  }
+
+  h1{
+    color: var(--color-heading);
+    font-size: 4rem;
   }
   .question {
     margin: 10px 0;
+    color: blanchedalmond;
+    font-size: 2.5rem;
+    gap: 1rem;
   }
-  .navigation {
-    margin-top: 20px;
+
+  .question button{
+    border: 2px solid blanchedalmond;
+    padding: 1rem 4rem;
+    margin: 1rem 4rem;
+    background-color: azure;
+    color: rgb(3, 38, 49);
+    transition: all 0.5s;
   }
-  .navigation button {
-    margin-right: 10px;
+
+  .question button:hover{
+    background-color: rgb(3, 38, 49);
+    color: azure;
+    transform: scale(1.03);
   }
+
+.question button.selected {
+  background-color: rgb(3, 38, 49);
+  color: azure;
+  border: 2px solid lightblue;
+  transform: scale(1.03);
+}
+
+.navigation {
+    padding: 1rem;
+}
+
+.navigation button {
+    padding: 0.5rem 1.5rem;
+    margin: 0 1rem;
+    background-color: blanchedalmond;
+    color: rgb(16, 62, 75);
+}
+
+.navigation button:disabled{
+  background-color: rgb(197, 194, 194);
+  color: grey;
+}
   .submit-button {
     margin-top: 20px;
+    background-color: rgb(16, 62, 75);
+    color: azure;
+    padding: 1rem 2rem;
   }
   .results {
     margin-top: 20px;

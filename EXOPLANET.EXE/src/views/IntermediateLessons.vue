@@ -74,9 +74,9 @@
           </a>
         </div>
         <div class="button">
-          <a href="#game-2">
+            <router-link to="/TrueOrFalse">
             <button class="button">Test your knowledge</button>
-          </a>
+            </router-link>
         </div>
     </div>
     <div class="lesson-image">
@@ -343,7 +343,7 @@ font-size: 3rem;
 }
 
 #lesson-5 {
-    padding-bottom: 5rem;
+    padding-bottom: 5;
 }
 @media (max-width: 768px) { /* for small screens */
     .planet-1-image, .planet-2-image {
