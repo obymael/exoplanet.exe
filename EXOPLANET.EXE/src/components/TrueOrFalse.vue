@@ -27,6 +27,7 @@
           <li v-for="(question, index) in questions" :key="index">
             <p>{{ question.question }}</p>
             <p>Your answer: {{ answers[index] ? 'True' : 'False' }} - <span :class="{ correct: isCorrect(index), incorrect: !isCorrect(index) }">{{ isCorrect(index) ? 'Correct' : 'Incorrect' }}</span></p>
+            <p class="darker-p">{{ questions[index].extraText }}</p>    
           </li>
         </ul>
         <h3>You got {{ score }} out of {{ questions.length }} correct!</h3>
@@ -54,16 +55,16 @@
     data() {
       return {
         questions: [
-          { question: "KELT-9b is hotter than our sun.", answer: false },
-          { question: "Kepler-186f is located in the habitable zone, making it possible for liquid water to exist on its surface.", answer: true },
-          { question: "Gliese 1214 b is a rocky exoplanet similar to Earth.", answer: false },
-          { question: "Earth is located in the Sun’s habitable zone.", answer: true },
-          { question: "All exoplanets are larger than Earth.", answer: false },
-          { question: "Every exoplanet discovered has a solid surface like Earth.", answer: false },
-          { question: "Some exoplanets are found orbiting more than one star.", answer: true },
-          { question: "A 'super-Earth' is a type of exoplanet that is more massive than Earth but still rocky.", answer: true },
-          { question: "Exoplanets with the exact same conditions as Earth have already been found.", answer: false},
-          { question: "There are no known exoplanets with moons.", answer: false}
+          { question: "KELT-9b is hotter than our sun.", answer: false , extraText: "KELT-9b is hotter than a lot of stars, but still not as hot as our sun."},
+          { question: "Kepler-186f is located in the habitable zone, making it possible for liquid water to exist on its surface.", answer: true, extraText: "Kepler-186f is in its star's habitable zone, and while its conditions may allow for liquid water, it is unknown if it actually has water." },
+          { question: "Gliese 1214 b is a rocky exoplanet similar to Earth.", answer: false, extraText: "Gliese 1214 b is believed to be a 'water world,' with a thick atmosphere and possibly a surface covered with water or ice." },
+          { question: "Earth is located in the Sun’s habitable zone.", answer: true, extraText: "Earth is at the perfect distance from the Sun for liquid water to exist, which is key for life" },
+          { question: "All exoplanets are larger than Earth.", answer: false, extraText: "Exoplanets come in a wide range of sizes, and some are smaller, while others are much larger." },
+          { question: "Every exoplanet discovered has a solid surface like Earth.", answer: false, extraText:"Many exoplanets are gas giants, meaning they don’t have solid surfaces like Earth." },
+          { question: "Some exoplanets are found orbiting more than one star.", answer: true, extraText: "These are called circumbinary planets, and they orbit two stars, unlike Earth, which orbits just one." },
+          { question: "A 'super-Earth' is a type of exoplanet that is more massive than Earth but still rocky.", answer: true, extraText: "Super-Earths are larger than Earth but are still solid, rocky planets." },
+          { question: "Exoplanets with the exact same conditions as Earth have already been found.", answer: false, extraText: "While scientists have found Earth-like planets, none has been discovered with the exact same conditions as Earth so far."},
+          { question: "There are no known exoplanets with moons.", answer: false, extraText: "While moons of exoplanets (exomoons) are hard to detect, scientists believe many exoplanets may have moons."}
         ],
         answers: Array(10).fill(null),
         score: null,
@@ -209,6 +210,10 @@ h3{
   .selected {
     background-color: lightblue;
   }
+
+.results .darker-p{
+    color:rgb(43, 146, 174);
+}
 
 .end-options-nav{
   display: flex;

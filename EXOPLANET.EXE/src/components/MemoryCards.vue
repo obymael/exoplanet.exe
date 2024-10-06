@@ -34,14 +34,14 @@
 </template>
 
 <script>
-import gammaCepheiImage from '@/assets/Gamma_Cephei_Ab.png';
-import kepler186fGif from '@/assets/kepler-186f.gif';
-import waspImage from '@/assets/wasp-12b.gif';
-import glieseImage from '@/assets/Gliese_1214_b.jpg';
-import kelt9bImage from '@/assets/KELT-9b_gif.webp';
-import pegasiBImage from '@/assets/51_pegasi_b.webp';
-import proximaCentauriBGif from '@/assets/proxima_centauri_b.gif';
-import hd209458bImage from '@/assets/HD_209458b.webp';
+import gammaCepheiImage from '@/assets/memory_game/Gamma_Cephei_Ab.png';
+import kepler186fGif from '@/assets/memory_game/kepler-186f.gif';
+import waspImage from '@/assets/memory_game/wasp-12b.gif';
+import glieseImage from '@/assets/memory_game/Gliese_1214_b.jpg';
+import kelt9bImage from '@/assets/memory_game/KELT-9b_gif.webp';
+import pegasiBImage from '@/assets/memory_game/51_pegasi_b.webp';
+import proximaCentauriBGif from '@/assets/memory_game/proxima_centauri_b.gif';
+import hd209458bImage from '@/assets/memory_game/HD_209458b.webp';
 import confetti from 'canvas-confetti';
 
 export default {
@@ -260,7 +260,7 @@ export default {
 .card {
   width: 100px;
   height: 150px;
-  background-color: #ccc;
+  background-color: azure;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -268,8 +268,12 @@ export default {
   border-radius: 10px;
   cursor: pointer;
   transition: background-color 0.3s;
+  box-shadow: 0 0 1rem #f5f5f57c;
 }
 
+p{
+  color: rgb(16, 62, 75);
+}
 .card.flipped {
   background-color: #f8f8f8;
 }
@@ -282,7 +286,7 @@ h2,
 .card-back {
   width: 100%;
   height: 100%;
-  background-color: #333;
+  background: linear-gradient(#E0F4FD, #3497C1);
   border-radius: 10px;
 }
 
