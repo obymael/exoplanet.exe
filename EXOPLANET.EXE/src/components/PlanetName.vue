@@ -27,7 +27,8 @@
           <li v-for="(question, index) in questions" :key="index">
             <p>{{ question.question }}</p>
             <p>Your answer: {{ answers[index] ? 'Exoplanet' : 'Celebrity Baby' }} - <span :class="{ correct: isCorrect(index), incorrect: !isCorrect(index) }">{{ isCorrect(index) ? 'Correct' : 'Incorrect' }}</span></p>
-            </li>
+            <p class="darker-p">{{ questions[index].extraText }}</p>    
+        </li>
         </ul>
         <h3>You got {{ score }} out of {{ questions.length }} correct!</h3>
         <div class="end-options-nav">
@@ -54,26 +55,26 @@
     data() {
       return {
         allQuestions: [
-          { question: "Kepler-452b", answer: true },
-          { question: "X Æ A-Xii", answer: false },
-          { question: "Raddix Madden", answer: false },
-          { question: "Bellerophon", answer: true },
-          { question: "Pilot Inspektor", answer: false },
-          { question: "Audio Science", answer: false },
-          { question: "Barnard's Star b", answer: true },
-          { question: "Stormi Webster", answer: false },
-          { question: "Gravity", answer: false},
-          { question: "Rocket Zot", answer: false},
-          { question: "Osiris", answer: true},
-          { question: "Tau Ceti e", answer: true},
-          { question: "TRAPPIST-1e", answer: true},
-          { question: "Kulture Kiari Cephus", answer: false},
-          { question: "Bear Blaze", answer: false},
-          { question: "Proxima Centauri b", answer: true},
-          { question: "WASP-12b", answer: true},
-          { question: "Reign Aston Disick", answer: false},
-          { question: "Teegarden b", answer: true},
-          { question: "Gliese 581g", answer: true}
+          { question: "Kepler-452b", answer: true, extraText: "This planet is sometimes called 'Earth’s cousin' because it's similar in size to Earth and orbits a star like the Sun."},
+          { question: "X Æ A-Xii", answer: false, extraText: "X Æ A-Xii is the child of Elon Musk and Grimes." },
+          { question: "Raddix Madden", answer: false, extraText: "Raddix Madden is the child of Cameron Diaz and Benji Madden."},
+          { question: "Bellerophon", answer: true, extraText: "Bellerophon (51 Pegasi b) is the first planet we found orbiting a star like the Sun, and it's super-hot because it's so close to its star." },
+          { question: "Pilot Inspektor", answer: false, extraText:"Pilot Inspektor is the child of Jason Lee and Beth Riesgraf."},
+          { question: "Audio Science", answer: false, extraText: "Audio Science is the child of Shannyn Sossamon and Dallas Clayton." },
+          { question: "Barnard's Star b", answer: true, extraText: "Barnard’s Star b is a frozen, rocky planet that orbits one of the closest stars to Earth." },
+          { question: "Stormi Webster", answer: false, extraText: "Stormi Webster is the child of Kylie Jenner and Travis Scott." },
+          { question: "Gravity", answer: false, extraText: "Gravity is the child of Lucky Blue Smith and Stormi Bree."},
+          { question: "Rocket Zot", answer: false, extraText: "Rocket Zot is the child of Sam Worthington and Lara Bingle."},
+          { question: "Osiris", answer: true, extraText: "Osiris (HD 209458 b)  is a big, very hot planet, and it's famous because scientists saw its atmosphere blowing away like a tail behind it."},
+          { question: "Tau Ceti e", answer: true, extraText: "Tau Ceti e is in a star system close to Earth and is in the 'habitable zone,' meaning it could have the right temperature for water. "},
+          { question: "TRAPPIST-1e", answer: true, extraText: "TRAPPIST-1e is part of a family of seven planets, all close to their star, and some of them could even have water."},
+          { question: "Kulture Kiari Cephus", answer: false, extraText: "Kulture Kiari Cephus is the child of Cardi B and Offset." },
+          { question: "Bear Blaze", answer: false, extraText: "Bear Blaze is the child of Kate Winslet and Ned Rocknroll."},
+          { question: "Proxima Centauri b", answer: true, extraText: "This planet is the closest one to Earth outside of our solar system, orbiting the star next to the Sun!"},
+          { question: "WASP-12b", answer: true, extraText: "This planet is really close to its star and is being pulled apart by its heat, making it look like it's melting!"},
+          { question: "Reign Aston Disick", answer: false, extraText: "Reign Aston Disick is the child of Kourtney Kardashian and Scott Disick."},
+          { question: "Teegarden b", answer: true, extraText: "Teegarden b is an Earth-sized planet in a nearby star system that could be a good place to search for signs of life."},
+          { question: "Gliese 581g", answer: true, extraText: "Scientists think Gliese 581g might be a planet where life could exist because it’s not too hot or cold."}
         ],
         answers: [],
       score: null,
@@ -203,6 +204,9 @@ h2{
 .results p{
   color: var(--color-light-text);
   line-height: 2rem;
+}
+.results .darker-p{
+    color:rgb(43, 146, 174);
 }
 
 h3{
