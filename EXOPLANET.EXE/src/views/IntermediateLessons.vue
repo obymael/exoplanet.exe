@@ -175,6 +175,35 @@
         </div>
         </div>
       </section>
+      <section id="lesson-6" class="even-lesson">
+        <div class="lesson-container">
+        <div class="lesson-text">
+        <h2>Lesson 6: Crazy Weather on Exoplanets</h2>
+        <div class="lesson-content">
+        <p>
+          Weather on Earth can be wild, but on some exoplanets, it is even wilder! On some exoplanets, the
+          wind can blow at thousands of kilometers per hour, and on other planets, it's as if it rains glass.
+          These strange worlds show us just how different weather can be across the universe.
+        </p>
+        <p>
+          Click below to learn more or test your knowledge with a game.
+        </p>
+        </div>
+        <div class="buttons">
+            <button class="button">Learn more</button>
+        </div>
+        <div class="button">
+            <button class="button">Test your knowledge</button>
+            <div class="preview-window">
+            <img src="@/assets/crosswordanimation.png" alt="Word search puzzle popup" id="word-search-popup">
+          </div>
+        </div>
+        </div>
+        <div class="lesson-image">
+          <img src="@/assets/intermediate_page/planet-image-8.jpg" alt="Astronaut exploring a planet in space">
+        </div>
+        </div>
+      </section>
     </div>
 </template>
   
