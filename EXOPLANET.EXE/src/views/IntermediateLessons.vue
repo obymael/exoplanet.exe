@@ -104,7 +104,9 @@
         </div>
         <div class="button">
           <a href="#game-3">
+            <router-link to="/MultipleChoice">
             <button class="button">Test your knowledge</button>
+          </router-link>
           </a>
         </div>
     </div>
