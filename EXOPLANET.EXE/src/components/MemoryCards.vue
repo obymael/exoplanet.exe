@@ -42,6 +42,7 @@ import kelt9bImage from '@/assets/KELT-9b_gif.webp';
 import pegasiBImage from '@/assets/51_pegasi_b.webp';
 import proximaCentauriBGif from '@/assets/proxima_centauri_b.gif';
 import hd209458bImage from '@/assets/HD_209458b.webp';
+import confetti from 'canvas-confetti';
 
 export default {
   data() {
@@ -185,10 +186,36 @@ export default {
         }, 1000);
       }
     },
-    endGame() {
-      clearInterval(this.interval);
-      this.gameOver = true; // Set the game over state
-    },
+    launchConfetti() {
+    const duration = 5 * 1000; // Duration of the confetti effect
+    const animationEnd = Date.now() + duration;
+    
+    const interval = setInterval(() => {
+      const timeLeft = animationEnd - Date.now();
+
+      if (timeLeft <= 0) {
+        return clearInterval(interval);
+      }
+
+      const particleCount = 50 * (Math.random() + 0.5);
+      confetti({
+        particleCount,
+        angle: 60,
+        spread: 55,
+        startVelocity: 30,
+        decay: 0.9,
+        scalar: 1.2,
+        colors: ['rgb(235, 217, 248)', 'rbg(140, 222, 227)', '#4B3066', 'rgb(103, 130, 247)'],
+        origin: { x: Math.random(), y: Math.random() - 0.2 },
+      });
+    }, 250);
+  },
+
+  endGame() {
+    clearInterval(this.interval);
+    this.gameOver = true; // Set the game over state
+    this.launchConfetti(); // Launch the confetti when the game ends
+  },
     resetGame() {
       this.timer = 0;
       this.flippedIndices = [];
