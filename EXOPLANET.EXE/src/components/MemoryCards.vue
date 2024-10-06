@@ -26,25 +26,28 @@
   
   <script>
   import gammaCepheiImage from '@/assets/Gamma_Cephei_Ab.png';
-  import keplerfImage from '@/assets/Kepler-186f.jpg';
-  import waspImage from '@/assets/wasp-12b.jpg';
+  import kepler186fGif from '@/assets/kepler-186f.gif';
+  import waspImage from '@/assets/wasp-12b.gif';
   import glieseImage from '@/assets/Gliese_1214_b.jpg';
   import kelt9bImage from '@/assets/KELT-9b_gif.webp';
+  import pegasiBImage from '@/assets/51_pegasi_b.webp';
+  import proximaCentauriBGif from '@/assets/proxima_centauri_b.gif';
+  import hd209458bImage from '@/assets/HD_209458b.webp';
   
   export default {
     data() {
       return {
         cards: [
-          { type: "planet", content: "Earth" },
-          { type: "fact", content: "Only planet known to support life" },
-          { type: "planet", content: "Kepler-186f", img: keplerfImage },
+          { type: "planet", content: "Proxima Centauri b", img: proximaCentauriBGif },
+          { type: "fact", content: "It is the closest known exoplanet to the Earth, located just over 4 light-years away" },
+          { type: "planet", content: "Kepler-186f", img: kepler186fGif },
           { type: "fact", content: "Planet with the most similarity to earth" },
-          { type: "planet", content: "Venus" },
-          { type: "fact", content: "Hottest planet in the solar system" },
+          { type: "planet", content: "HD 209458 b", img: hd209458bImage },
+          { type: "fact", content: "First exoplanet observed transiting its host star, enabling measurements of its size" },
           { type: "planet", content: "Wasp-12b", img: waspImage },
           { type: "fact", content: "AKA \"hot Jupiter,\" it orbits close to its star, whilst gravity tears it apart" },
-          { type: "planet", content: "Saturn" },
-          { type: "fact", content: "Famous for its ring system" },
+          { type: "planet", content: "51 Pegasi b", img: pegasiBImage },
+          { type: "fact", content: "It is recognized as the first exoplanet ever discovered to orbit a sun-like star" },
           { type: "planet", content: "Gamma Cephei Ab", img: gammaCepheiImage },
           { type: "fact", content: "First exoplanet detected" },
           { type: "planet", content: "KELT-9b", img: kelt9bImage },
@@ -153,11 +156,11 @@
 },
     isMatch(planetCard, factCard) {
       const planetFactMapping = {
-        Earth: "Only planet known to support life",
+        "Proxima Centauri b": "It is the closest known exoplanet to the Earth, located just over 4 light-years away",
         "Kepler-186f": "Planet with the most similarity to earth",
-        Venus: "Hottest planet in the solar system",
-        "Wasp-12b": "AKA \"hot Jupiter,\" it orbits close to its star, whilst gravity is tearing it apart",
-        Saturn: "Famous for its ring system",
+        "HD 209458 b": "First exoplanet observed transiting its host star, enabling measurements of its size",
+        "Wasp-12b": "AKA \"hot Jupiter,\" it orbits close to its star, whilst gravity tears it apart",
+        "51 Pegasi b": "It is recognized as the first exoplanet ever discovered to orbit a sun-like star",
         "Gamma Cephei Ab": "First exoplanet detected",
         "KELT-9b": "It is the hottest known exoplanet, with surface temperatures hotter than some stars",
         "Gliese 1214 b": "AKA \"water world,\" with a thick layer of water or ice beneath its atmosphere",

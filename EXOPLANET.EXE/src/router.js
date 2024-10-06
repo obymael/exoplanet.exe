@@ -8,7 +8,7 @@ import MemoryCards from './components/MemoryCards.vue'
 const routes = [
   { path: '/', name: 'HomePage', component: HomePage},
   { path: '/TrueOrFalse', name: 'TrueOrFalse', component: TrueOrFalse },
-  { path: '/IntermediateLessons', name: 'IntermediateLessons', component: IntermediateLessons}
+  { path: '/IntermediateLessons', name: 'IntermediateLessons', component: IntermediateLessons},
   { path: '/MemoryCards', name: 'MemoryCards', component: MemoryCards },
 ]
 
