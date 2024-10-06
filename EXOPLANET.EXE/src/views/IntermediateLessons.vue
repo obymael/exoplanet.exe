@@ -357,7 +357,7 @@ font-size: 3rem;
   100% { opacity: 1; }
 }
 #lesson-5 {
-    padding-bottom: 5;
+    padding-bottom: 5rem;
 }
 @media (max-width: 768px) { /* for small screens */
     .planet-1-image, .planet-2-image {
