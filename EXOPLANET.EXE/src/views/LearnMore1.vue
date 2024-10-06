@@ -47,10 +47,10 @@
 </template>
 
 <script>
-import planetImage1 from '@/assets/planet-image-1.jpg';
-import planetImage2 from '@/assets/planet-image-2.jpg';
-import planetImage6 from '@/assets/planet-image-6.jpg';
-import planetImage4 from '@/assets/planet-image-4.jpg';
+import planetImage1 from '@/assets/img/planets/gas-giant.png';
+import planetImage2 from '@/assets/img/planets/neptunian-planet.png';
+import planetImage6 from '@/assets/img/planets/super-earth.png';
+import planetImage4 from '@/assets/img/planets/terrestrial-exoplanet.png';
 
 export default {
   name: 'LearnMore1',
@@ -74,7 +74,7 @@ export default {
         },
         planet6: {
           name: 'Super-Earths',
-          description: 'Super-Earths are rocky planets that are like Earth’s bigger siblings! They can be up to ten times heavier than Earth. Some super-Earths have conditions that could be just right for life, like Earth does, which makes them really interesting for scientists. Others, however, might be super hot or have thick atmospheres that make them very different from our home planet!',
+          description: 'Super-Earths are rocky planets similar to Earth but can be up to ten times heavier! Some may have conditions suitable for life, while others can be extremely hot or have thick atmospheres, making them quite different from our planet.',
         },
         planet4: {
           name: 'Terrestrial Planets',
