@@ -22,34 +22,147 @@
         </div>
       </section>
       <section id="lesson-1" class="odd-lesson">
-        <h2>Lesson 1: Types of exoplanets</h2>
-        <div class="lesson-content">
-            <p>Just like planets in our solar system, exoplanets come in different types based on their size, composition, and how far they are from their stars. There are 5 main types of exoplanets: gas giants, Neptunian planets, super-Earths, terrestrial planets, and hot Jupiters.</p>
-            <p>Click to learn more about the different types of exoplanets.</p>
-            </div>
-            <div class="button">
+        <div class="lesson-container">
+          <div class="lesson-text">
+          <h2>Lesson 1: Types of exoplanets</h2>
+          <div class="lesson-content">
+            <p>
+            Just like planets in our solar system, exoplanets come in different types based on their size,
+            composition, and how far they are from their stars. There are 5 main types of exoplanets. They are
+            called gas giants, Neptunian planets, super-Earths, terrestrial planets, and hot Jupiters.
+            </p>
+            <p>
+            Click below to learn more about the different types of exoplanets, or to test your knowledge
+            with a game.
+            </p>
+          </div>
+          <div class="buttons">
             <a href="#lesson-1-full">
-                <button class="buttons">Learn more</button>
+              <button class="button">Learn more</button>
             </a>
-            </div>
-            <div class="button">
+          </div>
+          <div class="button">
             <a href="#game-1">
-                <button class="buttons">Test your knowledge</button>
+              <button class="button">Test your knowledge</button>
             </a>
-            </div>
+          </div>
+        </div>
+        <div class="lesson-image">
+            <img src="@/assets/gas-giant.jpg" alt="Gas Giant type exoplanet image">
+        </div>
+    </div>
       </section>
       <section id="lesson-2" class="even-lesson">
+        <div class="lesson-container">
+        <div class="lesson-text">
         <h2>Lesson 2: Comparing exoplanets to our Earth</h2>
-        <p>When comparing exoplanets to Earth, there are a few important things to look at: size, distance from their star, atmosphere, and potential for life. While no exoplanet found so far is exactly like Earth, scientists are continuing to search for one that might be similar and could potentially support life! </p>
-      </section>
+        <div class="lesson-content">
+        <p>
+          Did you know that no exoplanet found so far is exactly like Earth?
+          They can be different from our Earth in many ways: in their size, distance from their star, atmosphere,
+          and even their potential for life. Today, scientists are still searching for one that might be similar
+          to Earth and could potentially support life!
+        </p>
+        <p>
+          Click below to learn more about the differences between Earth and exoplanets, or to test your knowledge
+          with a game.
+        </p>
+        </div>
+        <div class="buttons">
+          <a href="#lesson-2-full">
+            <button class="button">Learn more</button>
+          </a>
+        </div>
+        <div class="button">
+          <a href="#game-2">
+            <button class="button">Test your knowledge</button>
+          </a>
+        </div>
+    </div>
+    <div class="lesson-image">
+        <img src="@/assets/planet-image-3.jpg" alt="Exoplanet image">
+    </div>
+</div>
+    </section>
       <section id="lesson-3" class="odd-lesson">
+        <div class="lesson-container">
+        <div class="lesson-text">
         <h2>Lesson 3: The Habitable Zone</h2>
+        <div class="lesson-content">
+        <p>
+          Exploring the habitable zone is like being a space detective, looking for the best places for life in
+          the universe!
+          The "Habitable Zone" is like the Goldilocks zone of space. Imagine you're Goldilocks from the fairy tale,
+          but instead of testing porridge, you're exploring planets. In the story, some porridge was too hot, some 
+          was too cold, but one was just right. Well, planets are kind of the same!
+        </p>
+        <p>
+          Click below to learn more about what makes Earth so special and what might make an exoplanet a good
+          "Habitable Zone", or to test your knowledge with a game.
+        </p>
+        </div>
+        <div class="buttons">
+          <a href="#lesson-3-full">
+            <button class="button">Learn more</button>
+          </a>
+        </div>
+        <div class="button">
+          <a href="#game-3">
+            <button class="button">Test your knowledge</button>
+          </a>
+        </div>
+    </div>
+        </div>
       </section>
       <section id="lesson-4" class="even-lesson">
         <h2>Lesson 4: Significance of exoplanets</h2>
+        <div class="lesson-content">
+        <p>
+          Exoplanets are like a door to new worlds beyond our imagination. They help us understand more about the
+          universe and even our own planet, Earth! Exoplanets are like cosmic treasures. They give us clues about
+          how planets form, the possibility of life beyond somewhere else out there in the universe, and what else
+          might be out there for us to discover.
+        </p>
+        <p>
+          Click below to find out more about why exoplanets are so important, or to test your knowledge with a game.
+        </p>
+        </div>
+        <div class="buttons">
+          <a href="#lesson-4-full">
+            <button class="button">Learn more</button>
+          </a>
+        </div>
+        <div class="button">
+          <a href="#game-4">
+            <button class="button">Test your knowledge</button>
+          </a>
+        </div>
       </section>
       <section id="lesson-5" class="odd-lesson">
         <h2>Lesson 5: Planetary form and evolution</h2>
+        <div class="lesson-content">
+        <p>
+            Planetary formation and evolution is like watching a planet's life story unfold. It's all about how planets
+            are born, how they change over time, and how they eventually grow into the worlds we see today. Not only
+            is each exoplanet's story unique and interesting, but understanding how planets form, evolve, and grow
+            old also gives us insight into how our own Earth came to be, and how other planets might turn out in
+            the future.
+        </p>
+        <p>
+          Click below to learn more about the evolution and lifecycle of a planet, or to test your knowledge with
+          a game.
+        </p>
+        </div>
+        <div class="buttons">
+          <a href="#lesson-5-full">
+            <button class="button">Learn more</button>
+          </a>
+        </div>
+        <div class="button">
+          <a href="#game-5">
+            <button class="button">Test your knowledge</button>
+          </a>
+        </div>
       </section>
     </div>
 </template>
@@ -140,15 +253,22 @@ h5 {
 h2 {
 font-size: 3rem;
 }
-
+.lesson-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+}
 .odd-lesson, .even-lesson {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
     text-align: left;
-    vertical-align: top;
     padding-top: 3rem !important;
     flex-direction: column;
     font-size: 1.5rem;
 }
-
 .odd-lesson {
     background-color: #b7abc2;
     color: #4B3066;
@@ -163,16 +283,47 @@ font-size: 3rem;
     padding-top: 30px;
     padding-bottom: 30px;
 }
-.button {
+.lesson-text {
+    max-width: 60%;
+    padding-right: 1rem;
+}
+.lesson-image img {
+    padding-top: 3rem;
+    min-height: 50%;
+    max-height: 70%;
+    height: auto;
+    border-radius: 8pm;
+}
+.buttons {
     padding-top: 10px;
     padding-bottom: 10px;
 }
-.buttons {
-    background-color: #EEFCFF;
+.button {
+    background: linear-gradient(rgba(103, 130, 247, 0.4), rgba(65, 5, 94, 0.4));
     color: #13112E;
     border-color: #13112E;
     font-size: 2rem;
     border-radius: 25px;
+}
+.button:hover {
+    background-color: #b7abc2;
+    color: #b7abc2;
+    transform: scale(1.03);
+}
+
+@media (max-width: 768px) { /* for small screens */
+    .lesson-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .lesson-text {
+        max-width: 100%;
+        padding-right: 0;
+    }
+    .lesson-image img {
+        max-width: 80%;
+        margin-top: 1rem;
+    }
 }
 
 
