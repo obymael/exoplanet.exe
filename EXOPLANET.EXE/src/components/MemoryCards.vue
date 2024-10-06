@@ -260,7 +260,7 @@ export default {
 .card {
   width: 100px;
   height: 150px;
-  background-color: #ccc;
+  background-color: azure;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -268,8 +268,12 @@ export default {
   border-radius: 10px;
   cursor: pointer;
   transition: background-color 0.3s;
+  box-shadow: 0 0 1rem #f5f5f57c;
 }
 
+p{
+  color: rgb(16, 62, 75);
+}
 .card.flipped {
   background-color: #f8f8f8;
 }
@@ -282,7 +286,7 @@ h2,
 .card-back {
   width: 100%;
   height: 100%;
-  background-color: #333;
+  background: linear-gradient(#E0F4FD, #3497C1);
   border-radius: 10px;
 }
 
