@@ -13,7 +13,7 @@
                 <div class="card-layer">
                     <h4>Beginner Level</h4>
                     <p>For those new and want a very introductory exploration into exoplanets.</p>
-                    <a href="#">let's go</a>
+                    <a href="#">Let's go</a>
                 </div>
             </div>
         <div class="single-card-box">
@@ -29,7 +29,7 @@
             <div class="card-layer">
                 <h4>Advanced Level</h4>
                 <p>Want to challenge yourself? Impress us and try our advanced level.</p>
-                <a href="#">let's go</a>
+                <a href="#">Let's go</a>
             </div>
         </div>
       </div>

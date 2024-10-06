@@ -42,10 +42,10 @@
             </a>
           </div>
           <div class="button">
-            <a href="#game-1">
-              <button class="button">Test your knowledge</button>
-            </a>
-          </div>
+            <router-link to="/PlanetName">
+            <button class="button">Test your knowledge</button>
+            </router-link>
+        </div>
         </div>
         <div class="lesson-image">
             <img src="@/assets/intermediate_page/planet-image-3.jpg" alt="Gas Giant type exoplanet image">
@@ -163,9 +163,9 @@
             <button class="button">Learn more</button>
         </div>
         <div class="button">
-          <a href="#game-5">
+            <router-link to="/MemoryCards">
             <button class="button">Test your knowledge</button>
-          </a>
+            </router-link>
         </div>
         </div>
         <div class="lesson-image">
