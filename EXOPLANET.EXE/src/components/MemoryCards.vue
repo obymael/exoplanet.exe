@@ -28,6 +28,8 @@
   import gammaCepheiImage from '@/assets/Gamma_Cephei_Ab.png';
   import keplerfImage from '@/assets/Kepler-186f.jpg';
   import waspImage from '@/assets/wasp-12b.jpg';
+  import glieseImage from '@/assets/Gliese_1214_b.jpg';
+  import kelt9bImage from '@/assets/KELT-9b_gif.webp';
   
   export default {
     data() {
@@ -45,10 +47,10 @@
           { type: "fact", content: "Famous for its ring system" },
           { type: "planet", content: "Gamma Cephei Ab", img: gammaCepheiImage },
           { type: "fact", content: "First exoplanet detected" },
-          { type: "planet", content: "Neptune" },
-          { type: "fact", content: "Coldest planet in the solar system" },
-          { type: "planet", content: "Uranus" },
-          { type: "fact", content: "Rotates on its side" },
+          { type: "planet", content: "KELT-9b", img: kelt9bImage },
+          { type: "fact", content: "It is the hottest known exoplanet, with surface temperatures hotter than some stars" },
+          { type: "planet", content: "Gliese 1214 b", img: glieseImage },
+          { type: "fact", content: "AKA \"water world,\" with a thick layer of water or ice beneath its atmosphere" },
         ],
       gameBoard: [],
       flippedIndices: [],
@@ -157,8 +159,8 @@
         "Wasp-12b": "AKA \"hot Jupiter,\" it orbits close to its star, whilst gravity is tearing it apart",
         Saturn: "Famous for its ring system",
         "Gamma Cephei Ab": "First exoplanet detected",
-        Neptune: "Coldest planet in the solar system",
-        Uranus: "Rotates on its side",
+        "KELT-9b": "It is the hottest known exoplanet, with surface temperatures hotter than some stars",
+        "Gliese 1214 b": "AKA \"water world,\" with a thick layer of water or ice beneath its atmosphere",
       };
       return planetFactMapping[planetCard.content] === factCard.content;
     },
