@@ -80,7 +80,7 @@
         </div>
     </div>
     <div class="lesson-image">
-        <img src="@/assets/planet-image-3.jpg" alt="Exoplanet image">
+        <img src="@/assets/planet-image-4.jpg" alt="Exoplanet image">
     </div>
 </div>
     </section>
@@ -112,9 +112,14 @@
           </a>
         </div>
     </div>
+    <div class="lesson-image">
+        <img src="@/assets/planet-image-5.jpg" alt="Exoplanet image">
+    </div>
         </div>
       </section>
       <section id="lesson-4" class="even-lesson">
+        <div class="lesson-container">
+        <div class="lesson-text">
         <h2>Lesson 4: Significance of exoplanets</h2>
         <div class="lesson-content">
         <p>
@@ -137,20 +142,24 @@
             <button class="button">Test your knowledge</button>
           </a>
         </div>
+        </div>
+        <div class="lesson-image">
+          <img src="@/assets/planet-image-6.jpg" alt="Satellite image">
+        </div>
+        </div>
       </section>
       <section id="lesson-5" class="odd-lesson">
+        <div class="lesson-container">
+        <div class="lesson-text">
         <h2>Lesson 5: Planetary form and evolution</h2>
         <div class="lesson-content">
         <p>
-            Planetary formation and evolution is like watching a planet's life story unfold. It's all about how planets
-            are born, how they change over time, and how they eventually grow into the worlds we see today. Not only
-            is each exoplanet's story unique and interesting, but understanding how planets form, evolve, and grow
-            old also gives us insight into how our own Earth came to be, and how other planets might turn out in
-            the future.
+            Planetary evolution is like watching a planet's life story unfold. Not only is each exoplanet's story unique
+            and interesting, but understanding planetary evolution also gives us insight into how our own Earth came to be and how
+            other planets might turn out in the future.
         </p>
         <p>
-          Click below to learn more about the evolution and lifecycle of a planet, or to test your knowledge with
-          a game.
+          Click below to learn more or test your knowledge with a game.
         </p>
         </div>
         <div class="buttons">
@@ -162,6 +171,11 @@
           <a href="#game-5">
             <button class="button">Test your knowledge</button>
           </a>
+        </div>
+        </div>
+        <div class="lesson-image">
+          <img src="@/assets/planet-image-7.jpg" alt="Astronaut exploring a planet in space">
+        </div>
         </div>
       </section>
     </div>
@@ -302,6 +316,9 @@ font-size: 3rem;
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+.lesson-image img:hover {
+  animation: floatImage 2.5s ease-in-out;
 }
 .buttons {
     padding-top: 10px;
