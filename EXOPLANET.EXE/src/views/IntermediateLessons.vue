@@ -36,16 +36,17 @@
             with a game.
             </p>
           </div>
-          <div class="buttons">
-            <a href="#lesson-1-full">
-              <button class="button">Learn more</button>
-            </a>
-          </div>
-          <div class="button">
-            <a href="#game-1">
-              <button class="button">Test your knowledge</button>
-            </a>
-          </div>
+        <div class="buttons">
+  <router-link to="/learn-more">
+    <button class="button">Learn more</button>
+  </router-link>
+</div>
+<div class="button">
+  <router-link to="#game-1">
+    <button class="button">Test your knowledge</button>
+  </router-link>
+</div>
+
         </div>
         <div class="lesson-image">
             <img src="@/assets/gas-giant.jpg" alt="Gas Giant type exoplanet image">
@@ -381,4 +382,3 @@ font-size: 3rem;
 
 
 </style>
-  
