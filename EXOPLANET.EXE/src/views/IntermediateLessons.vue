@@ -287,16 +287,29 @@ font-size: 3rem;
     max-width: 60%;
     padding-right: 1rem;
 }
+.lesson-image{
+    margin-top: 4rem;
+    width: 20rem;
+    height: 20rem;
+    overflow: hidden;
+    border-radius: 10px;
+    border-color:rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .lesson-image img {
-    padding-top: 3rem;
-    min-height: 50%;
-    max-height: 70%;
-    height: auto;
-    border-radius: 8pm;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 .buttons {
     padding-top: 10px;
     padding-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: flex-start;
 }
 .button {
     background: linear-gradient(rgba(103, 130, 247, 0.4), rgba(65, 5, 94, 0.4));
@@ -304,6 +317,7 @@ font-size: 3rem;
     border-color: #13112E;
     font-size: 2rem;
     border-radius: 25px;
+    max-width: 21rem;
 }
 .button:hover {
     background-color: #b7abc2;
@@ -312,6 +326,9 @@ font-size: 3rem;
 }
 
 @media (max-width: 768px) { /* for small screens */
+    .planet-1-image, .planet-2-image {
+      display: none;
+    }
     .lesson-container {
         flex-direction: column;
         text-align: center;
@@ -320,9 +337,11 @@ font-size: 3rem;
         max-width: 100%;
         padding-right: 0;
     }
-    .lesson-image img {
-        max-width: 80%;
-        margin-top: 1rem;
+    .lesson-image {
+      display: none;
+    }
+    .buttons {
+      justify-content: center;
     }
 }
 
