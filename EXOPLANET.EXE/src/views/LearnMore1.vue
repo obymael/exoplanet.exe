@@ -65,20 +65,20 @@ export default {
       },
       planetDescriptions: {
         planet1: {
-          name: 'Planet 1',
-          description: 'Description for Planet 1, a fascinating gas giant.',
+          name: 'Gas Giants',
+          description: 'Gas giants are huge planets mostly made of hydrogen and helium, like Jupiter and Saturn. They can be super massive—sometimes even bigger than Jupiter! These planets have thick, swirling atmospheres and may not have solid surfaces. ',
         },
         planet2: {
-          name: 'Planet 2',
-          description: 'Description for Planet 2, known for its stunning rings.',
+          name: 'Neptunian Planets',
+          description: 'Neptunian planets are smaller than gas giants and resemble cooler versions of Neptune and Uranus. They are mostly made of gases and ice, with thick atmospheres that may contain water and methane in their clouds.',
         },
         planet6: {
-          name: 'Planet 6',
-          description: 'Description for Planet 6, a unique exoplanet.',
+          name: 'Super-Earths',
+          description: 'Super-Earths are rocky planets that are like Earth’s bigger siblings! They can be up to ten times heavier than Earth. Some super-Earths have conditions that could be just right for life, like Earth does, which makes them really interesting for scientists. Others, however, might be super hot or have thick atmospheres that make them very different from our home planet!',
         },
         planet4: {
-          name: 'Planet 4',
-          description: 'Description for Planet 4, a distant icy world.',
+          name: 'Terrestrial Planets',
+          description: 'Terrestrial planets are the rocky planets we’re most familiar with, like Earth, Mars, Venus, and Mercury. These planets have solid surfaces that you could walk on (if they had a breathable atmosphere). If they’re in the habitable zone (the perfect distance from their star), they might even have liquid water—a key ingredient for life!',
         },
       },
     };
