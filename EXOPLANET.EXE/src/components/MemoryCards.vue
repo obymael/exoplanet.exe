@@ -27,7 +27,7 @@
       <p>Your time: {{ formatTime(timer) }}</p>
       <div class="button-container"> <!-- New Container for Buttons -->
     <button @click="resetGame">Play Again</button>
-    <button @click="goBackToLesson">Back to Lesson</button> <!-- New Button -->
+    <button @click="goBackToLesson">Back to Lesson</button>
   </div> <!-- New Button -->
     </div>
   </div>
@@ -231,8 +231,7 @@ export default {
       return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
     },
     goBackToLesson() {
-    // Implement your logic to navigate back to the lesson
-    // You might want to use this.$router.push('/path-to-lesson') if you're using Vue Router
+      this.$router.push('/IntermediateLessons'); // Navigate to the IntermediateLessons path
   },
   }
 }
