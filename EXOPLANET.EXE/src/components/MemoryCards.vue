@@ -42,7 +42,7 @@
           { type: "planet", content: "Venus" },
           { type: "fact", content: "Hottest planet in the solar system" },
           { type: "planet", content: "Wasp-12b", img: waspImage },
-          { type: "fact", content: "AKA \"hot Jupiter,\" it orbits close to its star, whilst gravity is tearing it apart" },
+          { type: "fact", content: "AKA \"hot Jupiter,\" it orbits close to its star, whilst gravity tears it apart" },
           { type: "planet", content: "Saturn" },
           { type: "fact", content: "Famous for its ring system" },
           { type: "planet", content: "Gamma Cephei Ab", img: gammaCepheiImage },
@@ -196,13 +196,13 @@
   flex-direction: column;
   gap: 10px;
   justify-items: center;
-  margin-top: 20px;
+  padding: 6rem 0;
 }
 
 .game-row {
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 6rem;
 }
 
 .card {
@@ -212,7 +212,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 16px;
+  font-size: 14px;
   border-radius: 10px;
   cursor: pointer;
   transition: background-color 0.3s;
