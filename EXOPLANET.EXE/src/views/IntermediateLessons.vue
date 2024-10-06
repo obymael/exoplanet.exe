@@ -72,9 +72,9 @@
             <button class="button">Learn more</button>
         </div>
         <div class="button">
-          <a href="#game-2">
+            <router-link to="/TrueOrFalse">
             <button class="button">Test your knowledge</button>
-          </a>
+            </router-link>
         </div>
     </div>
     <div class="lesson-image">
