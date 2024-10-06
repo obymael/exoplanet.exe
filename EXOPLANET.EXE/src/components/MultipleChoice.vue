@@ -52,39 +52,39 @@
       return {
         questions: [
           {
-            question: "What is the capital of France?",
-            choices: ["Paris", "Berlin", "Rome", "Madrid"],
-            correctAnswer: 0, // Index of the correct choice
+            question: "What is the \"Habitable Zone\" often compared to?",
+            choices: ["The temperature zone", "The Goldilocks zone", "The comfort zone", "The sweet spot"],
+            correctAnswer: 1,
           },
           {
-            question: "Which planet is closest to the sun?",
-            choices: ["Earth", "Venus", "Mars", "Mercury"],
-            correctAnswer: 3,
+            question: "Why is the Habitable Zone important for finding alien life?",
+            choices: ["It is where stars are hottest", "It is the area where liquid water can exist on a planet's surface", "It is the only place where planets can orbit stars", "It contains the most stars"],
+            correctAnswer: 1,
           },
           {
-            question: "Who wrote 'Romeo and Juliet'?",
-            choices: ["William Shakespeare", "Mark Twain", "Charles Dickens", "J.K. Rowling"],
-            correctAnswer: 0,
-          },
-          {
-            question: "What is the largest ocean?",
-            choices: ["Indian", "Atlantic", "Arctic", "Pacific"],
-            correctAnswer: 3,
-          },
-          {
-            question: "Which country has the most people?",
-            choices: ["USA", "India", "China", "Russia"],
+            question: "What happens to planets that are too close to their star?",
+            choices: ["They explode", "It gets \"eaten up\" by their star", "They become too hot, causing any water to boil away", "It moves further away from the star"],
             correctAnswer: 2,
           },
           {
-            question: "What is the chemical symbol for gold?",
-            choices: ["Au", "Ag", "Pb", "Fe"],
+            question: "What is the consequence for planets that are too far from their star?",
+            choices: ["They become too cold, causing water to turn to ice", "They experience frequent meteor impacts", "They have high levels of cosmic radiation", " They develop thick atmospheres"],
             correctAnswer: 0,
           },
           {
-            question: "What is the hardest natural substance on Earth?",
-            choices: ["Gold", "Iron", "Diamond", "Silver"],
-            correctAnswer: 2,
+            question: "Why is Earth considered to be in the habitable zone?",
+            choices: ["It has an abundance of minerals", "It is the only planet with liquid water", "It has a diverse range of ecosystems", "It maintains a climate suitable for life due to its distance from the Sun"],
+            correctAnswer: 3,
+          },
+          {
+            question: "What are scientists looking for when they explore the habitable zones of other stars?",
+            choices: ["Planets that could have conditions for the possibility of life", "Planets that have been recently discovered", "Celestial bodies with similar characteristics to gas giants", "Exoplanets with the largest sizes"],
+            correctAnswer: 0,
+          },
+          {
+            question: "How do scientists describe their search for life in the habitable zone?",
+            choices: ["As a quest for cosmic phenomena", "As a methodical study of stellar atmospheres", "As a voyage to distant galaxies", "As being space detectives searching for life-friendly environments"],
+            correctAnswer: 3,
           },
         ],
         answers: Array(7).fill(null), // Array to store the user's answers
