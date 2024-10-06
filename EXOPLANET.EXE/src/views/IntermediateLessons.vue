@@ -69,14 +69,12 @@
         </p>
         </div>
         <div class="buttons">
-          <a href="#lesson-2-full">
             <button class="button">Learn more</button>
-          </a>
         </div>
         <div class="button">
-          <a href="#game-2">
+            <router-link to="/TrueOrFalse">
             <button class="button">Test your knowledge</button>
-          </a>
+            </router-link>
         </div>
     </div>
     <div class="lesson-image">
@@ -102,9 +100,7 @@
         </p>
         </div>
         <div class="buttons">
-          <a href="#lesson-3-full">
             <button class="button">Learn more</button>
-          </a>
         </div>
         <div class="button">
           <a href="#game-3">
@@ -133,14 +129,15 @@
         </p>
         </div>
         <div class="buttons">
-          <a href="#lesson-4-full">
             <button class="button">Learn more</button>
-          </a>
         </div>
         <div class="button">
-          <a href="#game-4">
+          <div class="hover-button">
             <button class="button">Test your knowledge</button>
-          </a>
+            <div class="preview-window">
+            <img src="@/assets/animated-word-search-puzzle-bg.png" alt="Word search puzzle popup" id="word-search-popup">
+          </div>
+          </div>
         </div>
         </div>
         <div class="lesson-image">
@@ -163,9 +160,7 @@
         </p>
         </div>
         <div class="buttons">
-          <a href="#lesson-5-full">
             <button class="button">Learn more</button>
-          </a>
         </div>
         <div class="button">
           <a href="#game-5">
@@ -341,7 +336,26 @@ font-size: 3rem;
     color: #b7abc2;
     transform: scale(1.03);
 }
-
+.preview-window {
+  display: none;
+  position: absolute;
+  left: 80%;
+  bottom: 100%;
+  width: 4rem;
+  padding: 10px;
+  z-index: 10;
+}
+.hover-button {
+  cursor: pointer;
+}
+.hover-button:hover .preview-window {
+  display: block;
+  animation: fadeIn 0.5s ease-in-out;
+}
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
 #lesson-5 {
     padding-bottom: 5rem;
 }
