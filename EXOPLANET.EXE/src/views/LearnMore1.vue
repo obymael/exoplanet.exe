@@ -27,6 +27,12 @@
             class="learn-more-image"
             @click="selectPlanet('planet4')"
           />
+          <img
+            :src="planetImages.planet7"
+            alt="Planet Image 7"
+            class="learn-more-image"
+            @click="selectPlanet('planet7')"
+          />
         </div>
 
         <transition name="slide">
@@ -51,6 +57,7 @@ import planetImage1 from '@/assets/img/planets/gas-giant.png';
 import planetImage2 from '@/assets/img/planets/neptunian-planet.png';
 import planetImage6 from '@/assets/img/planets/super-earth.png';
 import planetImage4 from '@/assets/img/planets/terrestrial-exoplanet.png';
+import planetImage7 from '@/assets/img/planets/hot-jupiter.png'
 
 export default {
   name: 'LearnMore1',
@@ -62,6 +69,7 @@ export default {
         planet2: planetImage2,
         planet6: planetImage6,
         planet4: planetImage4,
+        planet7: planetImage7
       },
       planetDescriptions: {
         planet1: {
@@ -80,6 +88,10 @@ export default {
           name: 'Terrestrial Planets',
           description: 'Terrestrial planets are the rocky planets we’re most familiar with, like Earth, Mars, Venus, and Mercury. These planets have solid surfaces that you could walk on (if they had a breathable atmosphere). If they’re in the habitable zone (the perfect distance from their star), they might even have liquid water—a key ingredient for life!',
         },
+        planet7: {
+          name: 'Hot Jupiters',
+          description: 'These are gas giants like Jupiter, but they orbit very close to their stars, making them extremely hot. Because of their closeness, they often have very short orbits, meaning their "year" can be just a few days long.'
+        }
       },
     };
   },
@@ -107,7 +119,7 @@ export default {
 
 .learn-more-images {
   display: flex;
-  gap: 20px;
+  gap: 0.5rem;
 }
 
 .learn-more-image {
