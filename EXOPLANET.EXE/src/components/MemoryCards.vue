@@ -1,60 +1,69 @@
 <template>
-    <div class="memory-game">
-      <h1>Planet Memory Game</h1>
-      <div class="game-board">
-        <div v-for="(row, rowIndex) in gameBoard" :key="rowIndex" class="game-row">
-          <div
-            v-for="(card, colIndex) in row"
-            :key="colIndex"
-            class="card"
-            :data-index="`${rowIndex}-${colIndex}`"
-            @click="flipCard(rowIndex, colIndex)"
-          >
-            <div v-if="isFlipped(rowIndex, colIndex) || matchedIndices.includes(`${rowIndex}-${colIndex}`)">
-              <p>{{ card.content }}</p>
-              <div v-if="card.img">
-                <img :src="card.img" alt="Planet Image" class="card-pics planet-image" />
-              </div>
+  <div class="memory-game">
+    <h1>Planet Memory Game</h1>
+    <div class="game-board" v-if="!gameOver">
+      <div v-for="(row, rowIndex) in gameBoard" :key="rowIndex" class="game-row">
+        <div
+          v-for="(card, colIndex) in row"
+          :key="colIndex"
+          class="card"
+          :data-index="`${rowIndex}-${colIndex}`"
+          @click="flipCard(rowIndex, colIndex)"
+        >
+          <div v-if="isFlipped(rowIndex, colIndex) || matchedIndices.includes(`${rowIndex}-${colIndex}`)">
+            <p>{{ card.content }}</p>
+            <div v-if="card.img">
+              <img :src="card.img" alt="Planet Image" class="card-pics planet-image" />
             </div>
-            <div v-else class="card-back"></div>
           </div>
+          <div v-else class="card-back"></div>
         </div>
       </div>
     </div>
-  </template>
-  
-  
-  <script>
-  import gammaCepheiImage from '@/assets/Gamma_Cephei_Ab.png';
-  import kepler186fGif from '@/assets/kepler-186f.gif';
-  import waspImage from '@/assets/wasp-12b.gif';
-  import glieseImage from '@/assets/Gliese_1214_b.jpg';
-  import kelt9bImage from '@/assets/KELT-9b_gif.webp';
-  import pegasiBImage from '@/assets/51_pegasi_b.webp';
-  import proximaCentauriBGif from '@/assets/proxima_centauri_b.gif';
-  import hd209458bImage from '@/assets/HD_209458b.webp';
-  
-  export default {
-    data() {
-      return {
-        cards: [
-          { type: "planet", content: "Proxima Centauri b", img: proximaCentauriBGif },
-          { type: "fact", content: "It is the closest known exoplanet to the Earth, located just over 4 light-years away" },
-          { type: "planet", content: "Kepler-186f", img: kepler186fGif },
-          { type: "fact", content: "Planet with the most similarity to earth" },
-          { type: "planet", content: "HD 209458 b", img: hd209458bImage },
-          { type: "fact", content: "First exoplanet observed transiting its host star, enabling measurements of its size" },
-          { type: "planet", content: "Wasp-12b", img: waspImage },
-          { type: "fact", content: "AKA \"hot Jupiter,\" it orbits close to its star, whilst gravity tears it apart" },
-          { type: "planet", content: "51 Pegasi b", img: pegasiBImage },
-          { type: "fact", content: "It is recognized as the first exoplanet ever discovered to orbit a sun-like star" },
-          { type: "planet", content: "Gamma Cephei Ab", img: gammaCepheiImage },
-          { type: "fact", content: "First exoplanet detected" },
-          { type: "planet", content: "KELT-9b", img: kelt9bImage },
-          { type: "fact", content: "It is the hottest known exoplanet, with surface temperatures hotter than some stars" },
-          { type: "planet", content: "Gliese 1214 b", img: glieseImage },
-          { type: "fact", content: "AKA \"water world,\" with a thick layer of water or ice beneath its atmosphere" },
-        ],
+
+    <!-- Timer and Play Again Section -->
+    <div v-if="gameOver" class="game-over">
+      <h2>Game Over!</h2>
+      <p>Your time: {{ formatTime(timer) }}</p>
+      <div class="button-container"> <!-- New Container for Buttons -->
+    <button @click="resetGame">Play Again</button>
+    <button @click="goBackToLesson">Back to Lesson</button> <!-- New Button -->
+  </div> <!-- New Button -->
+    </div>
+  </div>
+</template>
+
+<script>
+import gammaCepheiImage from '@/assets/Gamma_Cephei_Ab.png';
+import kepler186fGif from '@/assets/kepler-186f.gif';
+import waspImage from '@/assets/wasp-12b.gif';
+import glieseImage from '@/assets/Gliese_1214_b.jpg';
+import kelt9bImage from '@/assets/KELT-9b_gif.webp';
+import pegasiBImage from '@/assets/51_pegasi_b.webp';
+import proximaCentauriBGif from '@/assets/proxima_centauri_b.gif';
+import hd209458bImage from '@/assets/HD_209458b.webp';
+
+export default {
+  data() {
+    return {
+      cards: [
+        { type: "planet", content: "Proxima Centauri b", img: proximaCentauriBGif },
+        { type: "fact", content: "It is the closest known exoplanet to the Earth, located just over 4 light-years away" },
+        { type: "planet", content: "Kepler-186f", img: kepler186fGif },
+        { type: "fact", content: "Planet with the most similarity to earth" },
+        { type: "planet", content: "HD 209458 b", img: hd209458bImage },
+        { type: "fact", content: "First exoplanet observed transiting its host star, enabling measurements of its size" },
+        { type: "planet", content: "Wasp-12b", img: waspImage },
+        { type: "fact", content: "AKA \"hot Jupiter,\" it orbits close to its star, whilst gravity tears it apart" },
+        { type: "planet", content: "51 Pegasi b", img: pegasiBImage },
+        { type: "fact", content: "It is recognized as the first exoplanet ever discovered to orbit a sun-like star" },
+        { type: "planet", content: "Gamma Cephei Ab", img: gammaCepheiImage },
+        { type: "fact", content: "First exoplanet detected" },
+        { type: "planet", content: "KELT-9b", img: kelt9bImage },
+        { type: "fact", content: "It is the hottest known exoplanet, with surface temperatures hotter than some stars" },
+        { type: "planet", content: "Gliese 1214 b", img: glieseImage },
+        { type: "fact", content: "AKA \"water world,\" with a thick layer of water or ice beneath its atmosphere" },
+      ],
       gameBoard: [],
       flippedIndices: [],
       matchedIndices: [],
@@ -65,7 +74,7 @@
     };
   },
   mounted() {
-    this.initializeGameBoard();
+    this.initializeGameBoard(); // Initialize the game board when the component is mounted
   },
   methods: {
     initializeGameBoard() {
@@ -88,6 +97,7 @@
         ]
       ];
       this.gameBoard = this.shuffleCards(this.gameBoard);
+      console.log("Initialized Game Board:", this.gameBoard); // Debugging: Check if the game board is populated
     },
     shuffleCards(board) {
       const flattened = board.flat();
@@ -122,38 +132,38 @@
       }
     },
     checkForMatch() {
-  const [firstIndex, secondIndex] = this.flippedIndices;
-  const [firstRow, firstCol] = firstIndex.split('-').map(Number);
-  const [secondRow, secondCol] = secondIndex.split('-').map(Number);
+      const [firstIndex, secondIndex] = this.flippedIndices;
+      const [firstRow, firstCol] = firstIndex.split('-').map(Number);
+      const [secondRow, secondCol] = secondIndex.split('-').map(Number);
 
-  const firstCard = this.gameBoard[firstRow][firstCol];
-  const secondCard = this.gameBoard[secondRow][secondCol];
+      const firstCard = this.gameBoard[firstRow][firstCol];
+      const secondCard = this.gameBoard[secondRow][secondCol];
 
-  if (
-    (firstCard.type === "planet" && secondCard.type === "fact" && this.isMatch(firstCard, secondCard)) ||
-    (firstCard.type === "fact" && secondCard.type === "planet" && this.isMatch(secondCard, firstCard))
-  ) {
-    this.matchedIndices.push(firstIndex, secondIndex);
-    
-    // Add the fade-out class to matched cards
-    this.$nextTick(() => {
-      const firstCardElement = this.$el.querySelector(`.card[data-index="${firstIndex}"]`);
-      const secondCardElement = this.$el.querySelector(`.card[data-index="${secondIndex}"]`);
-      if (firstCardElement) firstCardElement.classList.add('fade-out');
-      if (secondCardElement) secondCardElement.classList.add('fade-out');
-    });
+      if (
+        (firstCard.type === "planet" && secondCard.type === "fact" && this.isMatch(firstCard, secondCard)) ||
+        (firstCard.type === "fact" && secondCard.type === "planet" && this.isMatch(secondCard, firstCard))
+      ) {
+        this.matchedIndices.push(firstIndex, secondIndex);
+        
+        // Add the fade-out class to matched cards
+        this.$nextTick(() => {
+          const firstCardElement = this.$el.querySelector(`.card[data-index="${firstIndex}"]`);
+          const secondCardElement = this.$el.querySelector(`.card[data-index="${secondIndex}"]`);
+          if (firstCardElement) firstCardElement.classList.add('fade-out');
+          if (secondCardElement) secondCardElement.classList.add('fade-out');
+        });
 
-    if (this.matchedIndices.length === this.cards.length) {
-      this.endGame();
-    }
-  }
+        if (this.matchedIndices.length === this.cards.length) {
+          this.endGame();
+        }
+      }
 
-  // Reset flipped cards after a short delay
-  setTimeout(() => {
-    this.flippedIndices = [];
-    this.flippingLocked = false;
-  }, 1000);
-},
+      // Reset flipped cards after a short delay
+      setTimeout(() => {
+        this.flippedIndices = [];
+        this.flippingLocked = false;
+      }, 1000);
+    },
     isMatch(planetCard, factCard) {
       const planetFactMapping = {
         "Proxima Centauri b": "It is the closest known exoplanet to the Earth, located just over 4 light-years away",
@@ -165,27 +175,40 @@
         "KELT-9b": "It is the hottest known exoplanet, with surface temperatures hotter than some stars",
         "Gliese 1214 b": "AKA \"water world,\" with a thick layer of water or ice beneath its atmosphere",
       };
+
       return planetFactMapping[planetCard.content] === factCard.content;
     },
     startTimer() {
-      this.interval = setInterval(() => {
-        this.timer++;
-      }, 1000);
+      if (!this.interval) {
+        this.interval = setInterval(() => {
+          this.timer++;
+        }, 1000);
+      }
     },
     endGame() {
       clearInterval(this.interval);
-      this.gameOver = true;
+      this.gameOver = true; // Set the game over state
+    },
+    resetGame() {
+      this.timer = 0;
+      this.flippedIndices = [];
+      this.matchedIndices = [];
+      this.gameOver = false;  // Keep the game board visible
+      this.flippingLocked = false;
+      this.initializeGameBoard();  // Reinitialize the game board
+      this.startTimer();  // Restart the timer for the new game
     },
     formatTime(seconds) {
       const minutes = Math.floor(seconds / 60);
       const remainingSeconds = seconds % 60;
-      return `${minutes}:${remainingSeconds < 10 ? "0" : ""}${remainingSeconds}`;
+      return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
     },
+    goBackToLesson() {
+    // Implement your logic to navigate back to the lesson
+    // You might want to use this.$router.push('/path-to-lesson') if you're using Vue Router
   },
-  beforeUnmount() {
-    clearInterval(this.interval);
-  },
-};
+  }
+}
 </script>
 
 <style scoped>
@@ -225,6 +248,11 @@
   background-color: #f8f8f8;
 }
 
+h2,
+.game-over p{
+  color: var(--color-heading);
+}
+
 .card-back {
   width: 100%;
   height: 100%;
@@ -237,28 +265,36 @@
 }
 
 .game-over {
+  margin-top: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center the buttons */
+  font-size: 24px; /* Increase font size for all text within game-over */
+}
+
+.button-container {
+  display: flex; /* Flexbox for aligning buttons next to each other */
+  gap: 20px; /* Space between the buttons */
   margin-top: 20px;
 }
 
-.card.fade-out {
-  animation: fadeOut 0.5s forwards;
+button {
+  padding: 15px 30px; /* Larger button size */
+  font-size: 18px; /* Bigger font size */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: blanchedalmond;
+  color: rgb(16, 62, 75);
+  transition: background-color 0.3s, transform 0.3s; /* Added transform transition */
 }
 
-@keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-    visibility: hidden;
-  }
+button:hover {
+  background-color: rgb(16, 62, 75); /* Darker shade on hover */
+  color: blanchedalmond;
+  transform: scale(1.05); /* Slightly scale the button on hover */
 }
 
-.planet-image {
-  width: 80px;
-  height: auto;
-  margin-top: 5px;
-}
 
 .card.fade-out {
   animation: fadeOut 1s forwards; 
@@ -276,4 +312,9 @@
   }
 }
 
+.planet-image {
+  width: 80px;
+  height: auto;
+  margin-top: 5px;
+}
 </style>
