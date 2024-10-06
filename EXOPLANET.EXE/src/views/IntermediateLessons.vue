@@ -342,6 +342,9 @@ font-size: 3rem;
     transform: scale(1.03);
 }
 
+#lesson-5 {
+    padding-bottom: 5rem;
+}
 @media (max-width: 768px) { /* for small screens */
     .planet-1-image, .planet-2-image {
       display: none;
