@@ -21,7 +21,7 @@
             <div class="card-layer">
                 <h4>Intermediate Level</h4>
                 <p>For those with some prior knowledge that want to deep diver into the world of exoplanets.</p>
-                <a href="#">let's go</a>
+                <router-link to="/IntermediateLessons">Let's go</router-link>
             </div>
         </div>
         <div class="single-card-box">
