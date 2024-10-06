@@ -2,7 +2,7 @@
     <div class="intermediate-container">
       <section id="index-section">
         <div class="border-index border-index-left">
-            <img src="@/assets/planet-image-1.jpg" alt="planet" class="planet-1-image">
+            <img src="@/assets/intermediate_page/planet-image-1.jpg" alt="planet" class="planet-1-image">
         </div>
         <div class="center-index">
             <h1>Intermediate Level</h1>
@@ -18,7 +18,7 @@
             </div>
         </div>
         <div class="border-index border-index-right">
-            <img src="@/assets/planet-image-2.jpg" alt="planet" class="planet-2-image">
+            <img src="@/assets/intermediate_page/planet-image-2.jpg" alt="planet" class="planet-2-image">
         </div>
       </section>
       <section id="lesson-1" class="odd-lesson">
@@ -48,7 +48,7 @@
           </div>
         </div>
         <div class="lesson-image">
-            <img src="@/assets/gas-giant.jpg" alt="Gas Giant type exoplanet image">
+            <img src="@/assets/intermediate_page/planet-image-3.jpg" alt="Gas Giant type exoplanet image">
         </div>
     </div>
       </section>
@@ -78,7 +78,7 @@
         </div>
     </div>
     <div class="lesson-image">
-        <img src="@/assets/planet-image-4.jpg" alt="Exoplanet image">
+        <img src="@/assets/intermediate_page/planet-image-4.jpg" alt="Exoplanet image">
     </div>
 </div>
     </section>
@@ -109,7 +109,7 @@
         </div>
     </div>
     <div class="lesson-image">
-        <img src="@/assets/planet-image-5.jpg" alt="Exoplanet image">
+        <img src="@/assets/intermediate_page/planet-image-5.jpg" alt="Exoplanet image">
     </div>
         </div>
       </section>
@@ -135,13 +135,13 @@
           <div class="hover-button">
             <button class="button">Test your knowledge</button>
             <div class="preview-window">
-            <img src="@/assets/animated-word-search-puzzle-bg.png" alt="Word search puzzle popup" id="word-search-popup">
+            <img src="@/assets/puzzle/animated-word-search-puzzle-bg.png" alt="Word search puzzle popup" id="word-search-popup">
           </div>
           </div>
         </div>
         </div>
         <div class="lesson-image">
-          <img src="@/assets/planet-image-6.jpg" alt="Satellite image">
+          <img src="@/assets/intermediate_page/planet-image-6.jpg" alt="Satellite image">
         </div>
         </div>
       </section>
@@ -169,7 +169,7 @@
         </div>
         </div>
         <div class="lesson-image">
-          <img src="@/assets/planet-image-7.jpg" alt="Astronaut exploring a planet in space">
+          <img src="@/assets/intermediate_page/planet-image-7.jpg" alt="Astronaut exploring a planet in space">
         </div>
         </div>
       </section>
